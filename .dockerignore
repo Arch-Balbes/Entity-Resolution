@@ -1,0 +1,10 @@
+artifacts/*
+!artifacts/.gitignore
+data/*.csv
+data/*.parquet
+__pycache__
+*.pyc
+.venv
+venv
+.git
+*.md

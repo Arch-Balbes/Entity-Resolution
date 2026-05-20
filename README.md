@@ -12,7 +12,7 @@
 ## Структура проекта
 
 ```text
-ml_pipeline/
+Entity-Resolution/
 ├── data/              # данные для обучения (.csv / .parquet)
 ├── artifacts/         # обученная модель model.cbm
 ├── config/
@@ -143,19 +143,13 @@ ml_pipeline/
 
 ### Подготовка данных
 
-Положите датасет в `data/`:
-
-```bash
-cp split_label_train_V3.csv ml_pipeline/data/
-# или split_label_train_V3.snappy.parquet
-```
+Положите датасет в `data/`
 
 Приоритет при авто-поиске: **parquet** → **csv**.
 
 ### Docker
 
 ```bash
-cd ml_pipeline
 docker compose build
 docker compose run --rm train    # обучение (один раз)
 docker compose up app            # Streamlit на http://localhost:8501
@@ -173,7 +167,6 @@ docker compose up app            # Streamlit на http://localhost:8501
 ### Локальный запуск
 
 ```bash
-cd ml_pipeline
 pip install -r requirements.txt
 python scripts/train.py
 streamlit run app/streamlit_app.py
